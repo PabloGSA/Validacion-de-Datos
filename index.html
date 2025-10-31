@@ -13,18 +13,18 @@
         <h1 id="form-title">Validación</h1>
         <div class="input-div">
             <input type="text" id="username" placeholder="Nombre de Usuario">
-            <p class="Information">
-            3-20 caracteres (letras, números, _ , -)
+            <p class="information">
+                3-20 caracteres (letras, números, _ , -)
             </p>
         </div>
         <div class="input-div">
             <input type="email" id="email" placeholder="Correo Electrónico">
-            <p class="Information">
-            Debe ser escrito como este formato válido (ej: usuario@dominio.com)<br>
+            <p class="information">
+                Debe ser escrito como este formato válido (ej: usuario@dominio.com)<br>
             </p>
         </div>
         <div class="input-div">
-            <select id="countries"> 
+            <select id="countries">
                 <option value="" selected disabled>Selecciona un Pais</option>
                 <option data-countryCode="GB" value="44">UK (+44)</option>
                 <option data-countryCode="US" value="1">USA (+1)</option>
@@ -241,35 +241,31 @@
                 <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                 <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
             </select>
-            <p class="Information">
-            Debe seleccionar un país<br>
+            <p class="information">
+                Debe seleccionar un país<br>
             </p>
         </div>
         <div class="input-div">
             <span id="phone-code">+##</span>
             <input type="tel" id="phone" placeholder="Número de Teléfono">
-            <p class="Information">
-            Debe tener un mínimo de 8 dígitos (puede incluir +, -, espacios, paréntesis)<br>
+            <p class="information">
+                Debe tener un mínimo de 8 dígitos (puede incluir +, -, espacios, paréntesis)<br>
             </p>
         </div>
         <div class="input-div">
             <input type="password" id="password" placeholder="Contraseña">
-            <p class="Information">
-            Debe tener 8 o mas caracteres, 1 mayúscula, 1 minúscula, 1 número, 1 carácter especial (@$!%*?&)<br>
+            <p class="information">
+                Debe tener 8 o mas caracteres, 1 mayúscula, 1 minúscula, 1 número, 1 carácter especial (@$!%*?&)<br>
             </p>
         </div>
         <div class="input-div">
             <input type="password" id="confirm-password" placeholder="Confirmar Contraseña">
-            <p class="Information">
-            Debe tener 8 o mas caracteres, 1 mayúscula, 1 minúscula, 1 número, 1 carácter especial (@$!%*?&)<br>
+            <p class="information">
+                Debe tener 8 o mas caracteres, 1 mayúscula, 1 minúscula, 1 número, 1 carácter especial (@$!%*?&)<br>
             </p>
         </div>
-        <button id="form-btn">Registrar</button>
+        <button disabled id="form-btn">Registrar</button>
     </form>
-
-
-
-
     <script src="index.js"></script>
 </body>
 

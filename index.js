@@ -22,3 +22,28 @@ console.log(numberRegex.test('pepito23'))
 //Contraseña
 console.log(passwordRegex.test('Pepito123*'))
 console.log(passwordRegex.test('pepito123'))
+
+//Selectores
+const countries = document.querySelector('#countries');
+const usernameInput = document.querySelector('#username');
+
+//Validaciones
+let usernameValidation = false;
+
+[...countries].forEach(option => {
+    option.innerHTML = option.innerHTML.split('(')[0];
+});
+
+usernameInput.addEventListener('input', e => {
+    usernameValidation = usernameRegex.test(e.target.value);
+    const information = e.target.parentElement.children[1];
+    if (usernameValidation) {
+        usernameInput.classList.add('correct');
+        usernameInput.classList.remove('incorrect');
+        information.classList.remove('show-information');
+    } else {
+        usernameInput.classList.add('incorrect');
+        usernameInput.classList.remove('correct');
+        information.classList.add('show-information');
+    }
+});
