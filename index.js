@@ -83,7 +83,8 @@ countries.addEventListener('input', e => {
 
 phoneInput.addEventListener('input', e => {
     phoneValidation = numberRegex.test(e.target.value);
-    const information = e.target.parentElement.children[1];
+    const information = e.target.parentElement.children[3];
+    console.log(information)
     if (phoneValidation) {
         phoneInput.classList.add('correct');
         phoneInput.classList.remove('incorrect');

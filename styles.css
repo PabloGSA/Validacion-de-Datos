@@ -127,7 +127,7 @@ body::before {
 }
 
 .phone-row #phone {
-    flex: 1;
+    /* flex: 1; */
     border-radius: 0 10px 10px 0;
     border-left: none;
 }
