@@ -25,7 +25,7 @@
         </div>
         <div class="input-div">
             <select id="countries">
-                <option value="" selected disabled>Selecciona un Pais</option>
+                <option value="" disabled>Selecciona un Pais</option>
                 <option data-countryCode="GB" value="44">UK (+44)</option>
                 <option data-countryCode="US" value="1">USA (+1)</option>
                 <option data-countryCode="DZ" value="213">Algeria (+213)</option>
@@ -246,8 +246,10 @@
             </p>
         </div>
         <div class="input-div">
-            <span id="phone-code">+##</span>
-            <input type="tel" id="phone" placeholder="Número de Teléfono">
+            <div class="phone-row">
+                <span id="phone-code">+##</span>
+                <input type="tel" id="phone" placeholder="Número de Teléfono">
+            </div>
             <p class="information">
                 Debe tener un mínimo de 8 dígitos (puede incluir +, -, espacios, paréntesis)<br>
             </p>
@@ -261,7 +263,7 @@
         <div class="input-div">
             <input type="password" id="confirm-password" placeholder="Confirmar Contraseña">
             <p class="information">
-                Debe tener 8 o mas caracteres, 1 mayúscula, 1 minúscula, 1 número, 1 carácter especial (@$!%*?&)<br>
+                Debe coincidir con la Contraseña<br>
             </p>
         </div>
         <button disabled id="form-btn">Registrar</button>

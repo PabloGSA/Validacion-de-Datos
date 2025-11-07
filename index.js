@@ -26,9 +26,37 @@ console.log(passwordRegex.test('pepito123'))
 //Selectores
 const countries = document.querySelector('#countries');
 const usernameInput = document.querySelector('#username');
+const emailInput = document.querySelector('#email');
+const phoneCode = document.querySelector('#phone-code');
+const phoneInput = document.querySelector('#phone');
+const passwordInput = document.querySelector('#password');
+const confirmPasswordInput = document.querySelector('#confirm-password');
+const formBtn = document.querySelector('#form-btn');
+const form = document.querySelector('#form');
 
 //Validaciones
 let usernameValidation = false;
+let emailValidation = false;
+let phoneValidation = false;
+let passwordValidation = false;
+let confirmPasswordValidation = false;
+let countriesValidation = false;
+
+//Funcion
+
+const validation = (e, validation, element) => {
+    const information = e.target.parentElement.children[1];
+    formBtn.disabled = !usernameValidation || !emailValidation || !phoneValidation || !passwordValidation || !confirmPasswordValidation || !countriesValidation ? true : false;
+    if (validation) {
+        element.classList.add('correct');
+        element.classList.remove('incorrect');
+        information.classList.remove('show-information');
+    } else {
+        element.classList.add('incorrect');
+        element.classList.remove('correct');
+        information.classList.add('show-information');
+    }
+}
 
 [...countries].forEach(option => {
     option.innerHTML = option.innerHTML.split('(')[0];
@@ -36,14 +64,54 @@ let usernameValidation = false;
 
 usernameInput.addEventListener('input', e => {
     usernameValidation = usernameRegex.test(e.target.value);
+    validation(e, usernameValidation, usernameInput);
+});
+
+emailInput.addEventListener('input', e => {
+    emailValidation = emailRegex.test(e.target.value);
+    validation(e, emailValidation, emailInput);
+});
+
+countries.addEventListener('input', e => {
+    const optionSelected = [... e.target.children].find(option => option.selected);
+    phoneCode.innerHTML = `+${optionSelected.value}`
+    countriesValidation = optionSelected.value !== '' ? true : false;
+    countries.classList.add('correct');
+    phoneCode.classList.add('correct');
+    validation(e, null, null);
+});
+
+phoneInput.addEventListener('input', e => {
+    phoneValidation = numberRegex.test(e.target.value);
     const information = e.target.parentElement.children[1];
-    if (usernameValidation) {
-        usernameInput.classList.add('correct');
-        usernameInput.classList.remove('incorrect');
+    if (phoneValidation) {
+        phoneInput.classList.add('correct');
+        phoneInput.classList.remove('incorrect');
         information.classList.remove('show-information');
     } else {
-        usernameInput.classList.add('incorrect');
-        usernameInput.classList.remove('correct');
+        phoneInput.classList.add('incorrect');
+        phoneInput.classList.remove('correct');
         information.classList.add('show-information');
     }
 });
+
+passwordInput.addEventListener('input', e => {
+    passwordValidation = passwordRegex.test(e.target.value);
+    validation(e, passwordValidation, passwordInput);
+});
+
+confirmPasswordInput.addEventListener('input', e => {
+    confirmPasswordValidation = passwordInput.value === e.target.value;
+    validation(e, confirmPasswordValidation, confirmPasswordInput);
+});
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    const user = {
+        username: usernameInput.value,
+        email: emailInput.value,
+        phone: `${phoneCode.innerHTML} ${phoneInput.value}`,
+        password: passwordInput.value,
+    }
+    console.log(user);
+})

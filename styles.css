@@ -102,8 +102,14 @@ body::before {
     color: #ffffff;
 }
 
-.input-div #phone-code {
-    display: inline-block;
+.phone-row {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+}
+
+.phone-row #phone-code {
+    display: flex;
     padding: 1rem 1rem;
     background: rgba(167, 139, 250, 0.15);
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -114,13 +120,40 @@ body::before {
     min-width: 70px;
     text-align: center;
     font-size: 0.95rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
 }
 
-.input-div #phone {
-    width: calc(100% - 70px);
-    display: inline-block;
+.phone-row #phone {
+    flex: 1;
     border-radius: 0 10px 10px 0;
-    vertical-align: top;
+    border-left: none;
+}
+
+.phone-row #phone:focus {
+    border-color: #a78bfa;
+}
+
+.phone-row:has(#phone:focus) #phone-code {
+    border-color: #a78bfa;
+}
+
+.phone-row #phone.correct {
+    border-color: #34d399;
+}
+
+.phone-row #phone.incorrect {
+    border-color: #f87171;
+}
+
+/* Cuando el teléfono tiene estado de validación, actualizar el código usando :has() */
+.phone-row:has(#phone.correct) #phone-code {
+    border-color: #34d399;
+}
+
+.phone-row:has(#phone.incorrect) #phone-code {
+    border-color: #f87171;
 }
 
 .information {
