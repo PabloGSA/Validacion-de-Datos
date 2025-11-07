@@ -12,6 +12,7 @@ body {
     padding: 0;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
@@ -247,6 +248,48 @@ body::before {
     color: rgba(255, 255, 255, 0.5);
 }
 
+.footer {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.github-link {
+    color: #a78bfa;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.github-link:hover {
+    color: #60a5fa;
+    text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+}
+
+.github-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #a78bfa, #60a5fa);
+    transition: width 0.3s ease;
+}
+
+.github-link:hover::after {
+    width: 100%;
+}
+
 @media (max-width: 600px) {
     #form {
         padding: 2rem 1.5rem;
@@ -267,5 +310,11 @@ body::before {
     #form-btn {
         padding: 1rem;
         font-size: 1rem;
+    }
+
+    .footer {
+        font-size: 0.85rem;
+        padding: 1rem;
+        margin-top: 1.5rem;
     }
 }
